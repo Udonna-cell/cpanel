@@ -1,0 +1,17 @@
+
+list="list"
+if [ $1 == $list ]
+then
+  ls ~/cpanel/repository | wc -w > ~/cpanel/.panel/projects_record
+  repo_amount=$( < ~/cpanel/.panel/projects_record)
+  
+  echo " "
+  echo "you have $repo_amount repositorise ｡^‿^｡"
+  echo " "
+  echo "___________Repositorise____________"
+  echo " "
+  ls ~/cpanel/repository > ~/cpanel/.panel/projects_record
+  
+  cat -n ~/cpanel/.panel/projects_record
+  echo " "
+fi

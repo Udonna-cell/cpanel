@@ -18,7 +18,8 @@ then
       echo "happy coding :)"
       echo " "
     else
-      echo "Okay :|"
+      echo " "
+      echo "Okay (｡╯︵╰｡)"
       echo " "
     fi
   fi

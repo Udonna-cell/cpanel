@@ -1,0 +1,34 @@
+
+if [ -e  ~/cpanel/repository/$1 ]
+then
+  echo " "
+  echo "repository $1 exist already"
+  if [ -e  ~/storage/shared/Android/data/io.spck/files/$1 ]
+  then
+    echo "spck is upto date"
+    echo "happy coding :)"
+  else
+    echo "spck is out dated"
+    read -p "Do you want to update it (y/n): " response
+    
+    if [ $response == "y" ]
+    then
+      cp -r ~/cpanel/repository/$1 ~/storage/shared/Android/data/io.spck/files/
+      echo "spck editor is conected"
+      echo "happy coding :)"
+      echo " "
+    else
+      echo "Okay :|"
+      echo " "
+    fi
+  fi
+  echo " "
+else
+  echo " "
+  mkdir ~/cpanel/repository/$1
+  echo "1$ is created at repository/$1"
+  cp -r ~/cpanel/repository/$1 ~/storage/shared/Android/data/io.spck/files/
+  echo "spck editor is conected"
+  echo "happy coding :)"
+  echo " "
+fi

@@ -1,0 +1,13 @@
+shopt -s expand_aliases
+figlet Cpanel
+
+echo " "
+echo "Cpanel is now running..."
+echo " "
+echo "we can't complete the setup alone without your help, please copy and paste the below commands"
+echo " "
+echo "________Copy____________"
+echo " "
+echo 'alias create="bash .panel/create"'
+echo " "
+echo "________________________"

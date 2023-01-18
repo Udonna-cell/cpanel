@@ -10,6 +10,6 @@ echo "________Copy____________"
 echo " "
 echo 'alias create="bash .panel/create"'
 echo 'alias repo="bash .panel/repo"'
-echo 'alias init="bash ../.panel/init"'
+echo 'alias init="bash ~/cpanel/.panel/init"'
 echo " "
 echo "________________________"

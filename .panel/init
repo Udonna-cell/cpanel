@@ -1,2 +1,65 @@
+#!/bin/bash
 
-pwd
+home="/data/data/com.termux/files/home/cpanel"
+projects="/data/data/com.termux/files/home/cpanel/repository"
+
+
+
+
+dirname=$PWD
+result="${dirname%"${dirname##*[!/]}"}" # extglob-free multi-trailing-/ trim
+result="${result##*/}"                  # remove everything before the last /
+result=${result:-/}
+
+
+
+
+
+function Update_workspace() {
+  echo "connecting spck with project setups"
+  tree
+  ls > ~/cpanel/.panel/projects_record
+  dirction=$(< ~/cpanel/.panel/target)
+  location=$dirction/$result
+  while read line; do  
+  #Readind each line in sequence  
+  if [ -d $line ]
+  then
+    
+    if [ $line == "node_modules" ]
+    then
+      echo "we can't take $line directory along"
+    else
+      cp -r ~/cpanel/repository/$result/$line ~/storage/shared/Android/data/io.spck/files/$result
+    fi
+    
+  else
+    cp -r ~/cpanel/repository/$result/$line ~/storage/shared/Android/data/io.spck/files/$result
+  fi
+  done < ~/cpanel/.panel/projects_record
+  echo "SPCK is initialized in $result"
+  echo "happy coding :)"
+}
+
+
+
+
+case $PWD in
+$home )
+  echo " "
+  echo "You can't initialize 𝕮𝖕𝖆𝖓𝖊𝖑 𝙲𝚙𝚊𝚗𝚎𝚕"
+  echo " ";;
+$projects )
+  echo " "
+  echo "You can't initialize repository"
+  echo " ";;
+"/data/data/com.termux/files/home" )
+  echo " "
+  echo "you are outside of the cpanel"
+  echo " ";;
+*) 
+  echo " "
+  echo "loading....."
+  Update_workspace
+  echo " "
+esac

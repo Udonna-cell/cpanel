@@ -12,5 +12,6 @@ echo " "
 echo 'alias create="bash .panel/create"'
 echo 'alias repo="bash .panel/repo"'
 echo 'alias init="bash ~/cpanel/.panel/init"'
+echo 'alias pull="bash ~/cpanel/.panel/pull"'
 echo " "
 echo "________________________"

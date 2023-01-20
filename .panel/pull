@@ -13,12 +13,25 @@ dirname=${dirname:-/}
 
 
 function Pull_repo() {
-  ls $1 > ~/cpanel/.panel/projects_record
-  ls $current_location
+  ls $2 > ~/cpanel/.panel/projects_record
+  
   while read line; do
-  rm -rf $current_location/$line
+  if [ -d $line ]
+  then
+    
+    if [ $line == "node_modules" ]
+    then
+      echo "node_modules"
+    else
+      rm -rf $2/$line
+    fi
+    
+  else
+    rm $2/$line
+  fi
   done < ~/cpanel/.panel/projects_record
-  ls
+  
+  ls $1 > ~/cpanel/.panel/projects_record
   while read line; do
   cp -r ~/storage/shared/Android/data/io.spck/files/$dirname/$line  ~/cpanel/repository/$dirname/$line
   done < ~/cpanel/.panel/projects_record
@@ -32,8 +45,9 @@ then
   echo "we can see it"
   tree ~/storage/shared/Android/data/io.spck/files/$dirname
   
-  Pull_repo ~/storage/shared/Android/data/io.spck/files/$dirname
+  Pull_repo ~/storage/shared/Android/data/io.spck/files/$dirname ~/cpanel/repository/$dirname
 else
-  echo "not found"
-  echo $location/$dirname
+  echo ""
+  echo "$dirname project not found on spck"
+  echo ""
 fi

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+current_location=$PWD
+location=$(< ~/cpanel/.panel/target)
+
+dirname="${current_location%"${current_location##*[!/]}"}" # extglob-free multi-trailing-/ trim
+dirname="${dirname##*/}"                  # remove everything before the last /
+dirname=${dirname:-/}
+
+# echo $dirname
+# echo $current_location
+# echo $location
+
+
+function Pull_repo() {
+  ls $1 > ~/cpanel/.panel/projects_record
+  ls $current_location
+  while read line; do
+  rm -rf $current_location/$line
+  done < ~/cpanel/.panel/projects_record
+  ls
+  while read line; do
+  cp -r ~/storage/shared/Android/data/io.spck/files/$dirname/$line  ~/cpanel/repository/$dirname/$line
+  done < ~/cpanel/.panel/projects_record
+}
+
+
+
+
+if [ -e ~/storage/shared/Android/data/io.spck/files/$dirname ]
+then
+  echo "we can see it"
+  tree ~/storage/shared/Android/data/io.spck/files/$dirname
+  
+  Pull_repo ~/storage/shared/Android/data/io.spck/files/$dirname
+else
+  echo "not found"
+  echo $location/$dirname
+fi

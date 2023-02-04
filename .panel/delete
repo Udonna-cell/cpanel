@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ ! -z $1 ]
+then
+  if [ -e ~/cpanel/repository/$1 ]
+  then
+    echo "$1 repo found on termux"
+    read -p "done you want to delete this repo [y/n]: " name
+    if [ $name == "y" ]
+    then
+      rm -rf ~/cpanel/repository/$1
+      echo "successfully deleted $1 repo"
+    else
+      echo "repo $1 is saved"
+    fi
+    
+  else
+    echo "$1 repo not on termux"
+  fi
+  
+  if [ -e ~/storage/shared/Android/data/io.spck/files/$1 ]
+  then
+    echo "found on spck"
+    read -p "done you want to delete this repo [y/n]: " name
+    if [ $name == "y" ]
+    then
+      rm -rf ~/storage/shared/Android/data/io.spck/files/$1
+      echo "successfully deleted $1 repo"
+    else
+      echo "repo $1 is saved"
+    fi
+  else
+    echo 'not on spck'
+  fi
+  
+else
+  echo 'no argument try to update the software'
+fi

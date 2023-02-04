@@ -7,8 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "cpanel"
+    "cpanel",
+    "termux",
+    "spck",
+    "terminal",
+    "rovel",
+    "plugin",
+    "easy"
   ],
   "author": "udonna-cell (udochukwu stanley orabueze)",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "shelljs": "^0.8.5"
+  },
+  "dependencies": {
+    "rovel.js": "^1.2.0"
+  }
 }

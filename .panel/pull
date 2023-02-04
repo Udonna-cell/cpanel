@@ -31,6 +31,7 @@ function Pull_repo() {
   fi
   done < ~/cpanel/.panel/projects_record
   
+  
   ls $1 > ~/cpanel/.panel/projects_record
   while read line; do
   cp -r ~/storage/shared/Android/data/io.spck/files/$dirname/$line  ~/cpanel/repository/$dirname/$line

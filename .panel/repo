@@ -1,5 +1,7 @@
+#!/bin/bash
 
-list="list"
+list="ls"
+
 if [ $1 == $list ]
 then
   ls ~/cpanel/repository | wc -w > ~/cpanel/.panel/projects_record

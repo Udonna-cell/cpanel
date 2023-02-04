@@ -1,2 +1,8 @@
 # ignore repository/ folder
 repository/
+node_modules/
+*.js
+get.sh
+install.sh
+post.sh
+download.sh

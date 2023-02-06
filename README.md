@@ -25,3 +25,27 @@ alias push="bash ~/cpanel/.panel/push"
 ```
 copy and paste to activate the Cpanel.
 
+## Creating Repositories
+type in the following commands 
+```
+create <repository name>
+```
+after creating your project repository you will find it on spck and on the repository folder in the Cpanel directory on termux.
+
+## initializing (update spck with termux)
+this will update spck editor with any files and directory on the current project folder in the repository directory in the Cpanel on termux.
+
+navigate to the repository you want to update on spck editor and type in the following
+```
+init
+```
+
+## Pull (update termux with spck)
+with the pull command you can bring the changes on spck editor to termux
+to update you need to navigate to the repository you want to update and type the following
+```
+pull
+```
+
+## Order actions 
+you can delete, rename, and add new files or directories to your project eigther from termux or spck and update any with the init or pull command

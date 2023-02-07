@@ -12,9 +12,12 @@ You have to clone the repository
 ```
 git clone https://github.com/Udonna-cell/cpanel
 ```
-After cloning the repository to your local computer, navigate to the Cpanel folder/repository and run  
+After cloning the repository to your local computer, navigate to the Cpanel folder/repository 
 ```
 cd cpanel
+```
+and run the following commands
+```
 bash .init
 alias create="bash .panel/create"
 alias repo="bash .panel/repo"

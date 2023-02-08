@@ -1,6 +1,19 @@
 #!/bin/bash
 
+echo 'Cpanel is setting up'
+
+if [ -e ~/cpanel/repository ]
+then
+  echo 'your repository is ready for work'
+else
+  echo 'just a minute'
+  mkdir ~/cpanel/repository
+fi
+
+clear
+
 figlet Cpanel
+
 
 echo " "
 echo "Cpanel is now running..."
